@@ -86,17 +86,18 @@ Sondan 3. çalışanın maaşının 675000 olduğunu
 
         //40,21 ve 19 yaslarında çalışanlar olup olmadığını
 
+        //1. Yol
         List<Integer> actualYasListesi = new ArrayList<>();
 
         for(int i =0; i<dataSize; i++){
             actualYasListesi.add(((Integer) ((Map)((List<?>) actualDataMap.get("data")).get(i)).get("employee_age")));
         }
-
         Assert.assertTrue(actualYasListesi.containsAll((Collection<?>) expectedTestDataMap.get("arananyaslar")));
 
-
-
-
-
+        //2. Yol
+        List<Integer> employee_age = new ArrayList<>();
+        for(int i=0 ; i < ((List)actualDataMap.get("data")).size() ; i++){
+            employee_age.add((Integer) ((Map)((List)actualDataMap.get("data")).get(i)).get("employee_age"));
+        }
     }
 }
