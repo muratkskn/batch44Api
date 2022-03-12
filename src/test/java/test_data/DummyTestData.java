@@ -1,5 +1,7 @@
 package test_data;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +28,7 @@ public class DummyTestData {
    */
 
     //40,21 ve 19 yaslarında çalışanlar olup olmadığını
-    public HashMap<String, Object> setUpTestData(){
+    public HashMap<String, Object> setUpTestData() {
         List<Integer> yaslar = new ArrayList<>();
         yaslar.add(40);
         yaslar.add(21);
@@ -66,7 +68,7 @@ public class DummyTestData {
        "age":"40",
    }
      */
-    public HashMap<String , Object> setUpRequestBody (){
+    public HashMap<String, Object> setUpRequestBody() {
 
         HashMap<String, Object> requestBody = new HashMap<>();
         requestBody.put("name", "Ali Can");
@@ -77,9 +79,8 @@ public class DummyTestData {
 
     /*
        gönderildiğinde,Status kodun 200 olduğunu ve dönen response body nin,
-
    {
-       "status": "success",
+      "status": "success",
        "data": {
        "id":…
    },
@@ -87,7 +88,30 @@ public class DummyTestData {
    }
      */
 
-    public HashMap<String, Object> setUpExpectedData(){
+    public HashMap<String, Object> setUpExpectedData() {
 
+        HashMap<String, Object> expectedData = new HashMap<>();
+        expectedData.put("statusCode", 200);
+        expectedData.put("status", "success");
+        expectedData.put("message", "Successfully! Record has been added.");
+        return expectedData;
+    }
+
+    /*
+    http://dummy.restapiexample.com/api/v1/delete/2 bir DELETE request gönderdiğimde
+
+    Dönen response un status kodunun 200 ve body kısmının aşağıdaki gibi olduğunu test edin
+    {
+    "status": "success",
+    "data": "2",
+    "message": "Successfully! Record has been deleted"
+    }
+   */
+    public JSONObject setUpDeleteExpectedData(){
+        JSONObject expectedData = new JSONObject();
+        expectedData.put("status", "success");
+        expectedData.put("data", "2");
+        expectedData.put("message", "Successfully! Record has been deleted");
+        return expectedData;
     }
 }
