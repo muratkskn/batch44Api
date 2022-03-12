@@ -17,7 +17,8 @@ public class JsonPlaceHolderBaseUrl {
         expectedRequest.put("userId",21);
         expectedRequest.put("title","Wash the dishes");
         expectedRequest.put("completed",false);
-        }
+        return expectedRequest;
+
 
     }
 }

@@ -1,5 +1,7 @@
 package test_data;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,4 +18,16 @@ public class JsonPlaceHolderTestData {
         expectedData.put("Server", "cloudflare");
         return expectedData;
     }
+
+    public JSONObject SetupPatchRequestData (){
+        JSONObject requestData=new JSONObject();
+        requestData.put("title","Batch44");
+
+        return requestData;
+
+    }
+
+
+    }
+
 }
